@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>ថ្ងៃកំណើត | រីករាយថ្ងៃកំណើត ០៦ មិថុនា ២០២៦</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <!-- Khmer Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&family=Moul&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Khmer OS Muol Light';
+            src: url('https://khmer-fonts.com/fonts/khmer-os-muol-light.woff2') format('woff2');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Khmer OS Battambang';
+            src: url('https://khmer-fonts.com/fonts/khmer-os-battambang-regular.woff2') format('woff2');
+            font-display: swap;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'Battambang', 'Khmer OS Battambang', 'Noto Serif Khmer', system-ui, sans-serif;
+            background: #4a1a2e;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+        }
+        /* Pink-themed background */
+        .birthday-bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.pinimg.com/736x/cf/2e/5a/cf2e5a3c7b8d9e1f4a6b2c8d0e5f7a3b.jpg') center center/cover no-repeat;
+            filter: brightness(0.3) contrast(1.1) hue-rotate(320deg);
+            z-index: -3;
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+        .overlay-pink {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,105,180,0.2) 0%, rgba(80,20,50,0.85) 100%);
+            z-index: -2;
+            pointer-events: none;
+        }
+        .floating-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+            font-size: 0.9rem;
+            animation: floatParticle 14s linear infinite;
+            opacity: 0.5;
+        }
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+        /* Main Card - Pink Theme */
+        .invitation {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            background: url('https://i.pinimg.com/736x/9b/88/e6/9b88e6db61bc133d6b5f274b8a00ea57.jpg') center/cover no-repeat;
+            border-radius: 48px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: pointer;
+            text-align: center;
+            animation: cardGlow 2.2s ease-in-out infinite alternate;
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.5);
+        }
+        @keyframes cardGlow {
+            0% { box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255,105,180,0.6); }
+            100% { box-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 3px rgba(255,20,147,0.9); }
+        }
+        .invitation:active { transform: scale(0.97); }
+        .rose {
+            position: absolute;
+            font-size: 2rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            animation: floatSoft 4s ease-in-out infinite;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .rose1 { top: 2%; left: 2%; }
+        .rose2 { top: 4%; right: 2%; animation-delay: 1s; }
+        .rose3 { bottom: 3%; left: 3%; animation-delay: 2s; }
+        .rose4 { bottom: 5%; right: 3%; animation-delay: 0.5s; }
+        @keyframes floatSoft {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+        .title-main {
+            font-family: 'Moul', 'Khmer OS Muol Light', serif;
+            font-size: 1.9rem;
+            background: linear-gradient(135deg, #ff99cc, #ff66b5, #ff3388);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .circle {
+            width: 130px;
+            height: 130px;
+            border: 6px double #ff66b5;
+            border-radius: 50%;
+            margin: 0.5rem auto;
+            background: rgba(255, 240, 245, 0.96);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 8px rgba(255,105,180,0.3);
+            animation: gentleSpin 20s linear infinite, pulseGlow 2s ease-in-out infinite alternate;
+        }
+        @keyframes gentleSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 5px rgba(255,105,180,0.25); }
+            100% { box-shadow: 0 0 0 12px rgba(255,20,147,0.45); }
+        }
+        .sparkle {
+            position: absolute;
+            font-size: 0.9rem;
+            animation: sparkPulse 1s ease-out forwards;
+            pointer-events: none;
+        }
+        @keyframes sparkPulse {
+            0% { opacity: 0; transform: scale(0.2);}
+            50% { opacity: 1; transform: scale(1.2);}
+            100% { opacity: 0; transform: scale(1.6);}
+        }
+        .music-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1200;
+            width: 52px;
+            height: 52px;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(2px);
+            border: 2px solid #ff66b5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #ffc0cb;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+            animation: musicPulse 1.5s ease-in-out infinite;
+        }
+        @keyframes musicPulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,105,180,0.6); }
+            70% { box-shadow: 0 0 0 10px rgba(255,105,180,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,105,180,0); }
+        }
+        .music-float.playing { border-color: #ff69b4; background: #4a1a2e; animation: none; }
+        .full-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.pinimg.com/736x/f0/8a/2c/f08a2c7e5b3d9a1f6c8e4b2a7d5f3e9c.jpg') center/cover no-repeat;
+            background-color: #2a0f1c;
+            z-index: 2000;
+            overflow-y: auto;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+            font-family: 'Battambang', 'Khmer OS Battambang', sans-serif;
+            padding-bottom: 25px;
+        }
+        .full-panel.open { transform: translateY(0); }
+        .close-btn {
+            position: sticky;
+            top: 10px;
+            right: 10px;
+            float: right;
+            background: #ff66b5;
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2100;
+            margin: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        .close-btn:active { transform: scale(0.92); }
+        .qr-card {
+            background: white;
+            padding: 6px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        input, textarea {
+            font-family: 'Battambang', 'Khmer OS Battambang', sans-serif;
+            font-size: 14px;
+            text-align: center;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(255,20,100,0.8), transparent);
+            padding: 8px;
+            color: #fff0f5;
+            font-size: 0.7rem;
+            text-align: center;
+        }
+        .calendar-grid {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff5f8;
+            border-radius: 20px;
+            overflow: hidden;
+            font-size: 0.8rem;
+        }
+        .calendar-grid th, .calendar-grid td {
+            padding: 8px 4px;
+            text-align: center;
+            border: 1px solid #ffc0cb;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 70%;
+            border-radius: 24px;
+            border: 3px solid #ff66b5;
+        }
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 38px;
+            color: white;
+            cursor: pointer;
+        }
+        @media (max-width: 500px) {
+            body { padding: 8px; }
+            .invitation { border-radius: 40px; }
+            .circle { width: 110px; height: 110px; }
+            .title-main { font-size: 1.6rem; }
+            .gallery-grid { gap: 8px; }
+        }
+        .compact-input {
+            padding: 8px 12px;
+            font-size: 14px;
+            border-radius: 30px;
+        }
+        .compact-label {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+        .rsvp-card {
+            padding: 16px;
+        }
+        .btn-small {
+            padding: 10px;
+            font-size: 15px;
+        }
+        /* pink overrides */
+        .bg-pink-light { background-color: #ffe4ec; }
+        .text-pink-dark { color: #b83b5e; }
+        .border-pink { border-color: #ff99bb; }
+        .btn-pink {
+            background: linear-gradient(135deg, #ff6699, #ff3388);
+        }
+    </style>
+</head>
+<body>
+    <div class="birthday-bg-layer"></div>
+    <div class="overlay-pink"></div>
+
+    <!-- MAIN BIRTHDAY CARD - PINK THEME -->
+    <div class="invitation mx-auto" onclick="openFullDetails()">
+        <span class="rose rose1">🌸</span>
+        <span class="rose rose2">💗</span>
+        <span class="rose rose3">🎀</span>
+        <span class="rose rose4">✨</span>
+        
+        <div class="bg-gradient-to-b from-pink-50/95 to-rose-100/90 pt-5 pb-3">
+            <h1 class="title-main">អបអរសាទរថ្ងៃកំណើត</h1>
+            <p class="text-pink-700 text-xs font-semibold">🎀 ពិធីខួបកំណើត ដ៏រីករាយ 🎀</p>
+            <div class="circle">
+                <div class="text-center px-2">
+                    <div class="text-md font-bold text-pink-800">ខឹម អូន</div>
+                    <div class="text-[10px] text-pink-600 mt-1">ខួបកំណើត</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-5 bg-pink-50/85">
+            <p class="text-sm leading-relaxed text-pink-900">
+                🥰 សូមគោរព អញ្ជើញមិត្តភក្តិ បងប្អូន<br>
+                ចូលរួមអបអរសាទរក្នុងពិធីខួបកំណើត ដ៏ពិសេសរបស់ខ្ញុំ<br>
+                នៅភូមិ ស្នេហ៍រីករាយ សង្កាត់ អនុស្សាវរីយ៍ ភ្នំពេញ<br>
+                💖 មាននំខួបកំណើត ចម្រៀង និងកាដូភ្ញាក់ផ្អើល 💝
+            </p>
+            <div class="my-4">
+                <div class="text-2xl font-bold text-pink-700">ខឹម អូន</div>
+                <div class="text-pink-600 text-xs">ខួបកំណើត ០៦ មិថុនា ២០២៦</div>
+            </div>
+            <button id="openInviteBtn" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white py-3 rounded-2xl font-bold text-lg shadow-md flex items-center justify-center gap-2 active:scale-95 transition">
+                <i class="fas fa-birthday-cake"></i> បើកមើលពិធីអបអរ
+            </button>
+        </div>
+    </div>
+
+    <!-- MUSIC BUTTON -->
+    <div id="musicFloatBtn" class="music-float" onclick="event.stopPropagation(); toggleMusic()">
+        <i class="fas fa-music" id="musicIconFloat"></i>
+    </div>
+    <audio id="bgMusic" loop preload="auto">
+        <source src="images/Happy Birthday To You - Happy Birthday - Happy Birthday - Happy Birthday To You...!.mp4" type="audio/mpeg">
+    </audio>
+
+    <!-- FULL DETAIL PANEL - PINK THEME (No Map) -->
+    <div id="fullInvitePanel" class="full-panel">
+        <div class="close-btn" onclick="closeFullPanel()">
+            <i class="fas fa-times text-white text-xl"></i>
+        </div>
+        <div class="px-4 py-5 max-w-3xl mx-auto">
+            <div class="text-center mb-4">
+                <p class="text-pink-200 text-xs">🌸 HAPPY BIRTHDAY 🌸</p>
+                <p class="text-lg font-bold text-pink-100" style="font-family:'Moul', serif;">អបអរសាទរខួបកំណើត</p> 
+            </div>
+            
+            <div class="bg-pink-100/90 rounded-xl p-3 text-center border border-pink-300 my-3 shadow-sm">
+                <p class="font-bold text-pink-800"><i class="fas fa-crown text-pink-600"></i> ខួបកំណើតរបស់</p>
+                <p class="text-lg font-bold text-pink-800">🎀 ខឹម អូន 🎀</p>
+                <p class="text-xl text-rose-500 mt-1">០៦ មិថុនា ២០២៦</p>
+            </div>
+            
+            <div class="text-center mb-4 bg-white/80 p-3 rounded-xl shadow-sm border border-pink-200">
+                <h2 class="text-2xl font-bold text-pink-700" style="font-family:'Moul',serif;">រីករាយថ្ងៃកំណើត</h2>
+                <div class="flex justify-center gap-2 text-rose-400 my-1 text-xl"><i class="fas fa-cake-candles"></i><i class="fas fa-gift"></i></div>
+                <div class="mt-2 bg-pink-100 inline-block px-3 py-1 rounded-full text-pink-700 text-xs"><i class="far fa-calendar-alt"></i> ថ្ងៃសៅរ៍ ០៦ មិថុនា ២០២៦</div>
+                <div class="mt-1 text-pink-600 text-xs"><i class="fas fa-map-marker-alt"></i> សាលបុណ្យសុភមង្គល, ភ្នំពេញ</div>
+                <p class="text-pink-500 text-xs mt-1"><i class="fas fa-clock"></i> ម៉ោង ៦:៣០ ល្ងាច</p>
+            </div>
+
+            <!-- GALLERY SECTION -->
+            <div class="my-4 bg-pink-50/90 rounded-xl p-4 shadow-md border border-pink-200">
+                <div class="text-center mb-2">
+                    <i class="fas fa-images text-pink-500 text-2xl"></i>
+                    <h2 class="text-xl font-bold text-pink-700 inline-block ml-1" style="font-family:'Moul',serif;">វិចត្រសាល</h2>
+                </div>
+                <div class="gallery-grid" id="galleryGrid"></div>
+                <p class="text-center text-pink-500 text-[11px] mt-2">✨ ចុចលើរូបភាព ✨</p>
+            </div>
+
+            <!-- Calendar June 2026 -->
+            <div class="my-4 bg-white p-3 rounded-xl shadow-md border border-pink-200">
+                <h3 class="font-bold text-pink-700 text-lg text-center mb-2"><i class="fas fa-calendar-alt"></i> ខែមិថុនា ២០២៦</h3>
+                <div class="overflow-x-auto">
+                    <table class="calendar-grid w-full">
+                        <thead><tr><th>ច</th><th>អ</th><th>ព</th><th>ព</th><th>ស</th><th>ស</th><th>អ</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td class="bg-pink-300 font-bold rounded-full text-white">6</td><td>7</td></tr>
+                            <tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+                            <tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr>
+                            <tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+                            <tr><td>29</td><td>30</td><td></td><td></td><td></td><td></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center mt-2">
+                    <button onclick="addToGoogleCal()" class="bg-pink-500 text-white text-xs px-3 py-1.5 rounded-full shadow hover:bg-pink-600 transition"><i class="fab fa-google"></i> បន្ថែមកាលវិភាគ</button>
+                </div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="my-4 bg-white/90 rounded-xl p-4 shadow-md border border-pink-200 text-center">
+                <h3 class="font-bold text-pink-700 text-md"><i class="fas fa-hourglass-half"></i> រាប់ថយដល់ថ្ងៃកំណើត</h3>
+                <div class="grid grid-cols-4 gap-2 mt-2">
+                    <div><span id="cdDays" class="text-2xl font-bold text-rose-500">00</span><br/><span class="text-[10px]">ថ្ងៃ</span></div>
+                    <div><span id="cdHours" class="text-2xl font-bold text-rose-500">00</span><br/><span class="text-[10px]">ម៉ោង</span></div>
+                    <div><span id="cdMins" class="text-2xl font-bold text-rose-500">00</span><br/><span class="text-[10px]">នាទី</span></div>
+                    <div><span id="cdSecs" class="text-2xl font-bold text-rose-500">00</span><br/><span class="text-[10px]">វិនាទី</span></div>
+                </div>
+            </div>
+
+            <!-- Gift & Wishes QR -->
+            <div class="bg-gradient-to-r from-pink-100 to-rose-100 rounded-xl p-3 text-center border border-pink-300 my-4 shadow-sm">
+                <i class="fas fa-gift text-pink-500 text-2xl"></i>
+                <h3 class="font-bold text-pink-700 text-md">🎁 កាដូ & ជូនពរ 🎁</h3>
+                <div class="qr-card my-2">
+                    <img src="images/qr.jpg" alt="QR Code" width="70" height="70">
+                </div>
+                <p class="text-xs text-pink-600">ស្កេនដើម្បីផ្ញើកាដូ ឬជូនពរ</p>
+            </div>
+
+            <!-- Compact RSVP FORM - Pink Style -->
+            <div class="bg-white rounded-xl p-4 shadow-lg border border-pink-200 mt-2 rsvp-card">
+                <h3 class="text-lg font-bold text-center text-pink-700">បញ្ជាក់ការចូលរួម & ផ្ញើជូនពរ</h3>
+                <p class="text-[11px] text-center text-pink-500 mb-2">សូមបំពេញព័ត៌មានខាងក្រោម</p>
+                <form id="rsvpForm">
+                    <div class="mb-2">
+                        <label class="block text-pink-700 text-xs compact-label">ឈ្មោះពេញ <span class="text-red-500">*</span></label>
+                        <input type="text" id="fullname" required class="w-full border border-pink-300 rounded-full p-2 text-sm text-center bg-pink-50 compact-input">
+                    </div>
+                    <div class="mb-2">
+                        <label class="block text-pink-700 text-xs compact-label">លេខទូរស័ព្ទ <span class="text-red-500">*</span></label>
+                        <input type="tel" id="phone" required class="w-full border border-pink-300 rounded-full p-2 text-sm text-center bg-pink-50 compact-input">
+                    </div>
+                    <div class="mb-3">
+                        <label class="block text-pink-700 text-xs compact-label">សារជូនពរ / ពរថ្ងៃកំណើត</label>
+                        <textarea id="messageText" rows="2" class="w-full border border-pink-300 rounded-xl p-2 text-sm text-center bg-pink-50" placeholder="សូមអោយមានសុខភាពល្អ ជោគជ័យ និងសប្បាយរីករាយ..."></textarea>
+                    </div>
+                    <button type="submit" id="submitRsvpBtn" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white py-2 rounded-full font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition btn-small">
+                        <i class="fab fa-telegram"></i> ផ្ញើសារជូនពរ
+                    </button>
+                    <div id="formMsg" class="text-center text-[11px] mt-2"></div>
+                </form>
+            </div>
+            <div class="text-center text-pink-200 text-[11px] py-4">💖 សូមអរគុណដែលបានចូលរួមអបអរថ្ងៃកំណើតនេះ 💖</div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()"><span class="close-lightbox" onclick="closeLightbox()">&times;</span><img class="lightbox-img" id="lightboxImg" src=""><div class="lightbox-caption" id="lightboxCaption" style="color:#ffc0cb; margin-top:12px;"></div></div>
+
+    <script>
+        const galleryImages = [
+            { src: "https://i.pinimg.com/736x/74/04/a0/7404a0efa31cc51208252d7f76a5a006.jpg", caption: "🎂 នំខួបកំណើតពណ៌ផ្កាឈូក" },
+            { src: "https://i.pinimg.com/1200x/fa/f5/5d/faf55d74d9a3a84e86b6a9b89481e8c0.jpg", caption: "🎈 ប៉េងប៉ោះពណ៌ស្រស់" },
+            { src: "https://i.pinimg.com/736x/99/36/66/993666d967a867074942c9b18be38097.jpg", caption: "💝 អំណោយពិសេស" },
+            { src: "images/1.png", caption: "✨ ម្ចាស់ខួបកំណើត" }
+        ];
+        function buildGallery() { 
+            const container = document.getElementById('galleryGrid'); 
+            if(!container) return; 
+            container.innerHTML = ''; 
+            galleryImages.forEach((img) => { 
+                const item = document.createElement('div'); 
+                item.className = 'gallery-item'; 
+                item.onclick = (e) => { e.stopPropagation(); openLightbox(img.src, img.caption); }; 
+                item.innerHTML = `<img src="${img.src}" alt="gallery" loading="lazy"><div class="gallery-overlay">${img.caption}</div>`; 
+                container.appendChild(item); 
+            }); 
+        }
+        function openLightbox(src, cap) { 
+            const lb = document.getElementById('lightbox'); 
+            document.getElementById('lightboxImg').src = src; 
+            document.getElementById('lightboxCaption').innerText = cap; 
+            lb.classList.add('active'); 
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeLightbox() { 
+            document.getElementById('lightbox').classList.remove('active'); 
+            document.body.style.overflow = ''; 
+        }
+        const musicAudio = document.getElementById('bgMusic'), musicBtn = document.getElementById('musicFloatBtn'), musicIcon = document.getElementById('musicIconFloat'); 
+        let musicActive = false;
+        function toggleMusic() { 
+            if(musicActive) { musicAudio.pause(); musicBtn.classList.remove('playing'); musicIcon.classList.remove('fa-pause'); musicIcon.classList.add('fa-music'); } 
+            else { musicAudio.play().catch(e=>console.log); musicBtn.classList.add('playing'); musicIcon.classList.remove('fa-music'); musicIcon.classList.add('fa-pause'); } 
+            musicActive = !musicActive; 
+        }
+        function createSparkles() { 
+            const circle = document.querySelector('.circle'); 
+            if(!circle) return; 
+            setInterval(() => { 
+                const star = document.createElement('span'); 
+                star.className = 'sparkle'; 
+                star.textContent = '💖'; 
+                star.style.left = Math.random()*100+'%'; 
+                star.style.top = Math.random()*100+'%'; 
+                circle.appendChild(star); 
+                setTimeout(()=>star.remove(),1200); 
+            }, 700); 
+        }
+        function burstConfetti() { 
+            const icons = ['🎉','🎂','🎈','✨','💝','🌸','💗'];
+            for(let i=0;i<60;i++) { 
+                const el = document.createElement('div'); 
+                el.textContent = icons[Math.floor(Math.random()*icons.length)]; 
+                el.style.cssText = `position:fixed; left:${Math.random()*100}vw; top:-20px; font-size:${Math.random()*16+12}px; z-index:9999; pointer-events:none;`; 
+                document.body.appendChild(el); 
+                el.animate([{transform:'translateY(0) rotate(0deg)',opacity:1},{transform:`translateY(${window.innerHeight+100}px) rotate(${Math.random()*400-200}deg)`,opacity:0}],{duration:2200}); 
+                setTimeout(()=>el.remove(),2200); 
+            } 
+        }
+        const BOT_TOKEN = "7568652737:AAEkGFkFs-eUxLoBb0vXxN7WnzBMFS6sNUE", CHAT_ID = "6444898588";
+        async function sendTelegramRSVP(name, phone, msg) { 
+            const payload = `🎀 *ការបញ្ជាក់ចូលរួមថ្ងៃកំណើត* 🎀\n✅ *ឈ្មោះ:* ${name}\n📞 *ទូរស័ព្ទ:* ${phone}\n💬 *ជូនពរ:* ${msg||"គ្មាន"}`; 
+            try { 
+                const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CHAT_ID,text:payload,parse_mode:'Markdown'})}); 
+                const data = await res.json(); 
+                return data.ok?{success:true}:{success:false,error:data.description}; 
+            } catch(e){return{success:false,error:e.message};} 
+        }
+        function addToGoogleCal(){ window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("ខួបកំណើត ខឹម អូន ០៦ មិថុនា ២០២៦")}&dates=20260606T113000Z/20260606T150000Z&location=${encodeURIComponent("ភ្នំពេញ, សាលបុណ្យសុភមង្គល")}`,'_blank'); }
+        let countdownInterval=null; 
+        function startCountdown(){ 
+            if(countdownInterval) clearInterval(countdownInterval); 
+            const target=new Date("June 6, 2026 18:30:00 GMT+07:00").getTime(); 
+            const refresh=()=>{ 
+                const diff=target-Date.now(); 
+                if(diff<=0){ 
+                    ['cdDays','cdHours','cdMins','cdSecs'].forEach(id=>document.getElementById(id).innerText='00'); 
+                    if(countdownInterval) clearInterval(countdownInterval); 
+                    return; 
+                } 
+                document.getElementById('cdDays').innerText=Math.floor(diff/86400000).toString().padStart(2,'0'); 
+                document.getElementById('cdHours').innerText=Math.floor((diff%86400000)/3600000).toString().padStart(2,'0'); 
+                document.getElementById('cdMins').innerText=Math.floor((diff%3600000)/60000).toString().padStart(2,'0'); 
+                document.getElementById('cdSecs').innerText=Math.floor((diff%60000)/1000).toString().padStart(2,'0'); 
+            }; 
+            refresh(); 
+            countdownInterval=setInterval(refresh,1000); 
+        }
+        function openFullDetails(){ 
+            document.getElementById('fullInvitePanel').classList.add('open'); 
+            document.body.style.overflow='hidden'; 
+            startCountdown(); 
+            buildGallery(); 
+        }
+        function closeFullPanel(){ document.getElementById('fullInvitePanel').classList.remove('open'); document.body.style.overflow=''; }
+        document.getElementById('rsvpForm').addEventListener('submit', async(e)=>{ 
+            e.preventDefault(); 
+            const name=document.getElementById('fullname').value.trim(); 
+            const phone=document.getElementById('phone').value.trim(); 
+            if(!name||!phone){ document.getElementById('formMsg').innerHTML='<span class="text-red-500">សូមបំពេញឈ្មោះ និងលេខទូរស័ព្ទ</span>'; return; } 
+            const btn=document.getElementById('submitRsvpBtn'); 
+            btn.disabled=true; 
+            btn.innerHTML='<i class="fas fa-spinner fa-pulse"></i> កំពុងផ្ញើ...'; 
+            const msg=document.getElementById('messageText').value.trim();
+            const res=await sendTelegramRSVP(name, phone, msg); 
+            if(res.success){ 
+                document.getElementById('formMsg').innerHTML='<span class="text-green-600">✅ បានផ្ញើ! អរគុណសម្រាប់ពរ 🎂</span>'; 
+                burstConfetti(); 
+                document.getElementById('rsvpForm').reset(); 
+            } else { document.getElementById('formMsg').innerHTML=`<span class="text-red-500">❌ ${res.error}</span>`; } 
+            btn.disabled=false; 
+            btn.innerHTML='<i class="fab fa-telegram"></i> ផ្ញើសារជូនពរ'; 
+            setTimeout(()=>{ if(document.getElementById('formMsg').innerText.includes('បានផ្ញើ')) document.getElementById('formMsg').innerHTML=''; },3500); 
+        });
+        document.getElementById('openInviteBtn').addEventListener('click',(e)=>{ e.stopPropagation(); openFullDetails(); });
+        window.onload = () => { 
+            createSparkles(); 
+            for(let i=0;i<35;i++){ 
+                const p=document.createElement('div'); 
+                p.className='floating-particle'; 
+                p.innerHTML=['🌸','💗','🎀','✨','🎂','🎈','💖','🥳'][Math.floor(Math.random()*8)]; 
+                p.style.left=Math.random()*100+'%'; 
+                p.style.animationDuration=8+Math.random()*12+'s'; 
+                p.style.fontSize=10+Math.random()*14+'px'; 
+                p.style.opacity=0.4+Math.random()*0.5; 
+                document.body.appendChild(p); 
+            } 
+        };
+    </script>
+</body>
+</html>
